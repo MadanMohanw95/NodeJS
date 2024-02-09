@@ -19,7 +19,7 @@ const validationMiddleware = (req, res, next) => {
         const isUsernameValid = usernameSchema.safeParse(username)
         const isPwdValid = passwordSchema.safeParse(password)
         const isEmailValid = emailSchema.safeParse(email)
-        if (!isEmailValid.success && !isPwdValid.success && !isEmailValid.success) {
+        if (!isUsernameValid.success && !isPwdValid.success && !isEmailValid.success) {
             res.json({msg: "input validation failed"})
         } else {
             next();
